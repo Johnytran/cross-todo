@@ -1,0 +1,41 @@
+{
+  "name": "todo_list",
+  "version": "1.0.0",
+  "description": "todo list using pug and typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johnytran/todo.git"
+  },
+  "keywords": [
+    "scss",
+    "typescript"
+  ],
+  "author": "andy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johnytran/todo/issues"
+  },
+  "homepage": "https://github.com/Johnytran/todo#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-prettify": "^0.5.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-typescript": "^4.0.2",
+    "gulp-watch": "^5.0.0",
+    "run-sequence": "^2.2.1",
+    "tsify": "^3.0.4",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "browserify": "^16.1.1",
+    "gulp-plumber": "^1.2.0",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
