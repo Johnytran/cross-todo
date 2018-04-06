@@ -1,51 +1,70 @@
-//gulp configuration
 var gulp = require('gulp');
-var pug = require('gulp-pug');
+var ts = require('gulp-typescript');
 var scss = require('gulp-sass');
-var prettify = require('gulp-prettify');
-var typescript = require('gulp-typescript');
-var cleanscss = require('gulp-clean-css');
-var browsersync = require('browser-sync');
+var pug = require('gulp-pug');
 var watch = require('gulp-watch');
-var run = require('run-sequence');
-var dir = './build';
-gulp.task('html', ()=>{
-    return gulp.src('./templates/*.pub')
+var prettify = require('gulp-prettify');
+var runsequence = require('run-sequence');
+var browserSync = require('browser-sync');
+var plumber = require('gulp-plumber');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var tsify = require("tsify");
+
+var buildpath = './build';
+
+gulp.task('ts', function () {
+  return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['ts/todo.ts'],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(gulp.dest( buildpath + "/js"));
+});
+
+gulp.task('html', function () {
+    return gulp.src('./templates/*.pug')
     .pipe(pug())
     .pipe(prettify())
-    .pipe(browsersync().reload({ stream: true}))
-    .pipe(gulp.dest(dir));
-    
-});
-gulp.task('scss',()=>{
-    return gulp.src('./scss/*.scss')
-    .pipe(scss())
-    .pipe(cleanscss())
-    .pipe(browsersync.reload({stream: true}))
-    .pipe(gulp.dest(dir+'/css'));
-});
-gulp.task('js',()=>{
-    return gulp.src('./ts/*.ts')
-    .pipe(typescript(
-        {
-            noImplicityAny: true,
-            outFile: 'main.js'
-        }
-    ))
-    .pipe(gulp.dest(dir+'/js'));
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+    .pipe(gulp.dest(buildpath));
 });
 
-gulp.task('browsersync',()=>{
-   browsersync.create().init({ server:{baseDir: dir}}); 
+gulp.task('sass', () => {
+  return gulp.src('./scss/*.scss')
+  .pipe(scss())
+  .pipe(plumber())
+  .pipe(browserSync.reload({stream: true}))
+  .pipe(gulp.dest(buildpath+'/css'));
 });
 
-gulp.task('watch', ()=>{
-    run('html', 'scss', 'js', 'browsersync',()=>{});
-    gulp.watch('./tempaltes/*.pug',['html,']);
-    gulp.watch('.scss/*.scss',['scss']);
-    gulp.watch('./ts/*.ts',['js']);
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: buildpath
+    },
+  })
 });
 
-//gulp.task("default", function () {
-//  
-//});
+gulp.task('assets', function(){
+	return gulp.src(['./assets/*.jpg','./assets/*.svg','./assets/*.png'])
+	.pipe(gulp.dest(buildpath+'/images'));
+});
+
+gulp.task('build', ['html','sass','ts']);
+
+gulp.task('watch', function(){
+  runsequence('sass','html','ts','assets','browserSync',function(e){
+      //not yet anything
+  });
+  gulp.watch('./scss/*.scss',['sass']);
+  gulp.watch('./templates/*.pug',['html']);
+  gulp.watch('./ts/*.ts',['ts']);
+});

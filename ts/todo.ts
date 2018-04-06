@@ -8,3 +8,12 @@ class Task{
     this.status = false;
   }
 }
+
+// reference to form
+const taskform = document.getElementById('task-form');
+taskform.addEventListener('submit', (event: Event)=>{
+  event.preventDefault();
+  let input:HTMLElement = document.getElementById('task-input');
+  let taskname = (<HTMLInputElement>input).value;
+  console.log(taskname);
+});

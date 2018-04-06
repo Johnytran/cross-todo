@@ -3,6 +3,17 @@ html
   head
     title to do list
     link(href='css/styles.css', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
   body
     header
-      h1 to do
+      img.logo(src='images/logo.png')
+      h1 todo
+    form#task-form
+      input#task-input(type='text', placeholder='add a task')
+      button#task-add(type='submit') Add
+    main
+      ul#task-list
+        li Buy watermelons
+        li Finish assigments
+    footer
+    
