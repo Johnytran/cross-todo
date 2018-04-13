@@ -23,10 +23,39 @@ header {
     box-sizing: border-box;
     border: 1px solid #74a0ed; }
   #task-form input:focus {
-    background-color: white;
+    background-color: #3a869e;
+    color: azure;
     outline: none; }
   #task-form button {
     max-width: 80px;
     padding: 5px;
     background-color: azure;
-    color: white; }
+    color: blue; }
+
+#task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #task-list li {
+    padding: 1em;
+    border-bottom: 1px solid #ccc; }
+    #task-list li .task-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      #task-list li .task-container .task-name {
+        padding: 1em; }
+      #task-list li .task-container .task-button {
+        display: flex;
+        flex-direction: row; }
+        #task-list li .task-container .task-button button {
+          width: 48px;
+          height: 48px;
+          font-size: 1.5 em;
+          background-color: transparent;
+          border: 1px solid transparent; }
+        #task-list li .task-container .task-button button:focus {
+          outline: none;
+          background-color: #ccc; }
+        #task-list li .task-container .task-button button[data-function='status'] {
+          font-size: 1em; }

@@ -44,14 +44,47 @@ header{
     border: 1px solid $theme-color;
   }
   input:focus{
-    background-color: white;
+    background-color: #3a869e;
+    color:azure;
     outline: none;
   }
   button{
     max-width: 80px;
     padding: 5px;
     background-color: azure;
-    color: white;
+    color: blue;
   }
 }
 
+#task-list{
+  @include reset;
+  list-style: none;
+  li{
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+    .task-container{
+      @include flex(row);
+      justify-content: space-between;
+      .task-name{
+        padding: 1em;
+      }
+      .task-button{
+        @include flex(row);
+        button{
+          width: 48px;
+          height: 48px;
+          font-size: 1.5 em;
+          background-color: transparent;
+          border: 1px solid transparent;
+        }
+        button:focus{
+          outline: none;
+          background-color: #ccc;
+        }
+        button[data-function='status']{
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
