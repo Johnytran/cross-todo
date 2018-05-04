@@ -1,4 +1,4 @@
-$theme-color:#74a0ed;
+$theme-color:#74edb3;
 $theme-light: lighten($theme-color, 25%);
 $theme-dark: darken($theme-color, 25%);
 
@@ -18,10 +18,11 @@ $theme-dark: darken($theme-color, 25%);
 
 body{
   @include reset;
-  
+
 }
 
 header{
+  padding: 5px;
   background-color: $theme-light;
   @include flex(row);
   justify-content: space-between;
@@ -85,6 +86,13 @@ header{
           font-size: 1em;
         }
       }
+    }
+  }
+  li[data-status="true"]{
+    background-color: #eee;
+    .task-name{
+      text-decoration: line-through;
+      opacity: 0.5;
     }
   }
 }

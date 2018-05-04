@@ -17,7 +17,7 @@ gulp.task('ts', function () {
   return browserify({
         basedir: '.',
         debug: true,
-        entries: ['ts/todo.ts'],
+        entries: ['ts/main-module.ts'],
         cache: {},
         packageCache: {}
     })

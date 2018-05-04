@@ -3,7 +3,8 @@ body {
   padding: 0; }
 
 header {
-  background-color: #e5edfc;
+  padding: 5px;
+  background-color: #e5fcf1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,7 +22,7 @@ header {
     flex: 1;
     padding: 5px;
     box-sizing: border-box;
-    border: 1px solid #74a0ed; }
+    border: 1px solid #74edb3; }
   #task-form input:focus {
     background-color: #3a869e;
     color: azure;
@@ -59,3 +60,8 @@ header {
           background-color: #ccc; }
         #task-list li .task-container .task-button button[data-function='status'] {
           font-size: 1em; }
+  #task-list li[data-status="true"] {
+    background-color: #eee; }
+    #task-list li[data-status="true"] .task-name {
+      text-decoration: line-through;
+      opacity: 0.5; }
