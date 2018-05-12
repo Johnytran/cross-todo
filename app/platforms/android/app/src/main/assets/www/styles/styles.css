@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+header {
+  background-color: #e5edfc;
+  display: flex;
+  flex-direction: row; }
+  header .logo {
+    max-width: 60px; }

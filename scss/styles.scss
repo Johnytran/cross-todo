@@ -1,12 +1,17 @@
-$theme-color:#74edb3;
+$theme-color:#ff6e02;
+$theme-footer-bg-repeat: #ff6f05;
 $theme-light: lighten($theme-color, 25%);
 $theme-dark: darken($theme-color, 25%);
+$bg-row-rpeat: #f1f1f1;
 
 @mixin reset{
   margin:0;
   padding: 0;
 }
-
+@mixin rowFormat{
+  padding: 0;
+  margin: 5px;
+}
 @mixin display($type){
   display: $type;
 }
@@ -22,20 +27,22 @@ body{
 }
 
 header{
-  padding: 5px;
-  background-color: $theme-light;
+  padding: 10px;
+  background: $theme-color url(../images/header.png) top left no-repeat;
   @include flex(row);
   justify-content: space-between;
   align-items: center;
-  .logo{
-    max-width: 60px;
-  }
-  h1{
-    margin: 0;
-    padding: 5px;
+  .search{
+    max-width: 30px;
   }
 }
-
+footer{
+  padding: 10px;
+  background: $theme-footer-bg-repeat url(../images/footer.png) top left no-repeat;
+  @include flex(row);
+  justify-content: space-between;
+  align-items: center;
+}
 #task-form{
   @include flex(row);
   input{
@@ -43,17 +50,22 @@ header{
     padding: 5px;
     box-sizing: border-box;
     border: 1px solid $theme-color;
+    min-width: 400px;
+    font-size: 14px;
   }
   input:focus{
     background-color: #3a869e;
-    color:azure;
+    color: white;
     outline: none;
   }
   button{
-    max-width: 80px;
+    width: 65px;
+    height: 41px;
+    border: 0;
     padding: 5px;
-    background-color: azure;
-    color: blue;
+    margin: 0 5px;
+    cursor:pointer;
+    background: url(../images/button.png) top left no-repeat;
   }
 }
 
@@ -62,28 +74,34 @@ header{
   list-style: none;
   li{
     padding: 1em;
-    border-bottom: 1px solid #ccc;
+    background: $bg-row-rpeat url(../images/row-bg.png) top left no-repeat;
+    margin: 5px 0;
     .task-container{
       @include flex(row);
       justify-content: space-between;
-      .task-name{
-        padding: 1em;
+      .task-name, .task-age{
+        @include rowFormat;
       }
-      .task-button{
+      .task-name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .task-buttons{
         @include flex(row);
         button{
           width: 48px;
           height: 48px;
           font-size: 1.5 em;
-          background-color: transparent;
-          border: 1px solid transparent;
+          background: none;
+          border: 0;
         }
         button:focus{
           outline: none;
           background-color: #ccc;
         }
         button[data-function='status']{
-          font-size: 1em;
+          //font-size: 1em;
+          margin: 0 15px 0 0;
         }
       }
     }

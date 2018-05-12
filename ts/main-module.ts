@@ -71,9 +71,9 @@ const listelement: HTMLElement = document.getElementById('task-list');
 listelement.addEventListener('click', (event: Event)=>{
   let target: HTMLElement = <HTMLElement> event.target;
   let id = getParentId(<Node> event.target);
-  //console.log(id);
+  console.log(target);
   if(target.getAttribute('data-function')=='status'){
-    //console.log('test '+id);
+    console.log('test '+id);
     if(id){
       taskmanager.changeStatus(id, ()=>{
         taskstorage.store(taskarray, ()=>{

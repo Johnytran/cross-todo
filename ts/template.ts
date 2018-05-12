@@ -15,8 +15,12 @@ export class Template{
                   <p class="task-age">added ${timestamp}</p>
                 </div>
                 <div class="task-buttons">
-                  <button type="button" data-function="status">&#x2714;</button>
-                  <button type="button" data-function="delete">&times;</button>
+                  <button type="button" >
+                    <img src="../images/check.png" alt="done" data-function="status"/>
+                  </button>
+                  <button type="button" >
+                    <img src="../images/delete.png" alt="delete" data-function="delete"/>
+                  </button>
                 </div>
                 </div>
             </li>`;

@@ -1,20 +1,19 @@
 doctype html    
 html 
   head
-    title to do list
+    title Quick To Do List
     link(href='css/styles.css', rel='stylesheet')
     meta(name='viewport', content='width=device-width, initial-scale=1')
   body
     header
-      img.logo(src='images/logo.png')
-      h1 todo
-    form#task-form
-      input#task-input(type='text', placeholder='add a task')
-      button#task-add(type='submit') Add
+      img.search(src="images/maginify.png" alt="Search")
     main
       ul#task-list
-        li Buy watermelons
-        li Finish assigments
+        //li Buy watermelons
+        //li Finish assigments
     footer
+      form#task-form
+        input#task-input(type='text', placeholder='add a task')
+        button#task-add(type='submit')
   script(src='./js/main.js')
     
