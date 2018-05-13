@@ -31,7 +31,7 @@ footer {
     min-width: 400px;
     font-size: 14px; }
   #task-form input:focus {
-    background-color: #3a869e;
+    background-color: #f5ece6;
     color: white;
     outline: none; }
   #task-form button {
