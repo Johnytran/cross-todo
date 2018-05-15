@@ -16,14 +16,15 @@ export class Template{
                 </div>
                 <div class="task-buttons">
                   <button type="button" >
-                    <img src="../images/check.png" alt="done" data-function="status"/>
+                    <img src="images/check.png" alt="done" data-function="status"/>
                   </button>
                   <button type="button" >
-                    <img src="../images/delete.png" alt="delete" data-function="delete"/>
+                    <img src="images/delete.png" alt="delete" data-function="delete"/>
                   </button>
                 </div>
                 </div>
             </li>`;
+    //alert(task);
     return task;
   }
 }

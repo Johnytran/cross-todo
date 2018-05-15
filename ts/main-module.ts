@@ -36,6 +36,7 @@ taskform.addEventListener('submit', (event: Event)=>{
   let input:HTMLElement = document.getElementById('task-input');
   let taskname = (<HTMLInputElement>input).value;
   //console.log(taskname);
+  //alert(taskname);
   taskform.reset();
 
   if(taskname.length >0 ){
@@ -44,11 +45,13 @@ taskform.addEventListener('submit', (event: Event)=>{
     //listview.clear();
     taskstorage.store(taskarray, (result)=>{
       if(result){
+        //alert(result);
         taskform.reset();
         listview.clear();
         listview.render(taskarray);
       }else{
         // error to do with storage
+        //alert("d");
       }
     });
   }

@@ -6,7 +6,8 @@ export class TaskManager{
   }
   add(task: Task){
     this.tasks.push(task);
-    console.log(this.tasks);
+    //console.log(this.tasks);
+    //alert(this.tasks);
     this.sort( this.tasks );
   }
   changeStatus(id: string, callback): void{
