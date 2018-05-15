@@ -8,7 +8,7 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "au.edu.ait.johannes"
+      "PACKAGE_NAME": "com.gmail.tuananhasp"
     }
   },
   "dependent_plugins": {}
